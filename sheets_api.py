@@ -1,5 +1,6 @@
 import os
 from os.path import join, dirname
+import api_to_file
 
 from apiclient.discovery import build
 from dotenv import load_dotenv
@@ -35,8 +36,8 @@ def read_exercises(range_name, spreadsheet_id=SPREADSHEET_ID, ):
     return None
 
 
-def load_exercise_data(range_name, spreadsheet_id = SPREADSHEET_ID):
-    result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
+def load_sheet_data(spreadsheet_id, range_name):
+    result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name, majorDimension='COLUMNS').execute()
     values = result.get('values', [])
     return values
 
@@ -46,9 +47,8 @@ def read_dates(exercise_data):
 
 
 if __name__ ==  "__main__":
-
     # load spreadsheet data into memory
-    exercise_data = load_exercise_data('Current!A2:AV50')
+    exercise_data = load_sheet_data(SPREADSHEET_ID, 'Current!A2:AV50')
     print(exercise_data)
 
     # for exercise in exercise_data:
