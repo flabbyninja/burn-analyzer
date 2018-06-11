@@ -17,10 +17,10 @@ def load_from_file():
 
 if __name__ == '__main__':
     print('Initialising API')
-    creds_file, scope, sheet_id = sheets_api.load_settings()
-    sheets_api.initialise_sheets_api(creds_file, scope)
+    creds_file, scope, sheet_id, _ = sheets_api.load_settings()
+    service = sheets_api.initialise_sheets_api(creds_file, scope)
     print('Retrieving data')
-    values = sheets_api.load_sheet_data(sheet_id, 'Current!A2:AV50')
+    values = sheets_api.load_sheet_data(service, sheet_id, 'Current!A2:AV50')
     print('Persisting data')
     save_to_file(values)
     print('Done')
