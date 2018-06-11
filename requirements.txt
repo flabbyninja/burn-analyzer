@@ -1,7 +1,7 @@
 cachetools==2.1.0
 click==6.7
 Flask==1.0.2
-google-api-python-client==1.7.1
+google-api-python-client==1.7.3
 google-auth==1.5.0
 google-auth-httplib2==0.0.3
 httplib2==0.11.3
