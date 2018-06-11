@@ -16,8 +16,9 @@ def load_settings(dotenv_path=None):
     CREDS_FILE = os.environ.get("CREDS_FILE")
     SCOPES = os.environ.get("SCOPES")
     SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID")
+    LOCAL_MODE = os.environ.get("LOCAL_MODE")
 
-    return CREDS_FILE, SCOPES, SPREADSHEET_ID
+    return CREDS_FILE, SCOPES, SPREADSHEET_ID, LOCAL_MODE
 
 
 def initialise_sheets_api(creds_file, scopes):
@@ -25,31 +26,27 @@ def initialise_sheets_api(creds_file, scopes):
     return build('sheets', 'v4', http=creds.authorize(Http()))
 
 
-# Initialise environment
-CREDS_FILE, SCOPES, SPREADSHEET_ID = load_settings()
-
-# Initialise Sheets API (read-only) using Service Account details from .env file
-service = initialise_sheets_api(CREDS_FILE, SCOPES)
-
-
-def read_exercises(range_name, spreadsheet_id=SPREADSHEET_ID, ):
-    return None
-
-
-def load_sheet_data(spreadsheet_id, range_name):
+def load_sheet_data(service, spreadsheet_id, range_name):
     result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name, majorDimension='COLUMNS').execute()
     values = result.get('values', [])
     return values
 
+
+def read_exercises(exercide_data):
+    return None
 
 def read_dates(exercise_data):
     return None
 
 
 if __name__ ==  "__main__":
-    # load spreadsheet data into memory
-    exercise_data = load_sheet_data(SPREADSHEET_ID, 'Current!A2:AV50')
-    print(exercise_data)
+    creds_file, scope, sheet_id, local_mode = load_settings()
 
-    # for exercise in exercise_data:
-    #     print(exercise)
+
+    if local_mode:
+        print('Running in local mode')
+        exercise_data = api_to_file.load_from_file()
+    else:
+        service = initialise_sheets_api(creds_file, scope)
+        exercise_data = load_sheet_data(service, sheet_id, 'Current!A2:AV50')
+    print(exercise_data)
