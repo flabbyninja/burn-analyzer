@@ -31,24 +31,25 @@ CREDS_FILE, SCOPES, SPREADSHEET_ID = load_settings()
 service = initialise_sheets_api(CREDS_FILE, SCOPES)
 
 
-def read_exercises():
-    spreadsheet_id = SPREADSHEET_ID
-    range_name = 'Current!A3:B20'
-    result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id,
-                                                 range=range_name).execute()
-    values = result.get('values', [])
+def read_exercises(range_name, spreadsheet_id=SPREADSHEET_ID, ):
+    return None
 
+
+def load_exercise_data(range_name, spreadsheet_id = SPREADSHEET_ID):
+    result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
+    values = result.get('values', [])
     return values
 
 
-if __name__ ==  "__main__":
-    # Call the Sheets API
-    values = read_exercises()
+def read_dates(exercise_data):
+    return None
 
-    if not values:
-        print('No data found.')
-    else:
-        print('Exercise Name, Weight:')
-        for row in values:
-            # Print columns A and B, which cover exercise name and 'max' weight
-            print('%s, %s' % (row[0], row[1]))
+
+if __name__ ==  "__main__":
+
+    # load spreadsheet data into memory
+    exercise_data = load_exercise_data('Current!A2:AV50')
+    print(exercise_data)
+
+    # for exercise in exercise_data:
+    #     print(exercise)
