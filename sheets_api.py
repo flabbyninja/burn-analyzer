@@ -17,11 +17,12 @@ def load_settings(dotenv_path=None):
     SCOPES = os.environ.get("SCOPES")
     SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID")
     LOCAL_MODE = os.environ.get("LOCAL_MODE")
+    LOCAL_DIR = os.environ.get("LOCAL_DIR")
 
     if LOCAL_MODE is None:
         LOCAL_MODE = False
 
-    return CREDS_FILE, SCOPES, SPREADSHEET_ID, LOCAL_MODE
+    return CREDS_FILE, SCOPES, SPREADSHEET_ID, LOCAL_MODE, LOCAL_DIR
 
 
 def initialise_sheets_api(creds_file, scopes):
@@ -43,11 +44,11 @@ def read_dates(exercise_data):
 
 
 if __name__ ==  "__main__":
-    creds_file, scope, sheet_id, local_mode = load_settings()
+    creds_file, scope, sheet_id, local_mode, local_dir = load_settings()
 
     if local_mode:
         print('Running in local mode')
-        exercise_data = api_to_file.load_from_file('sheet.json')
+        exercise_data = api_to_file.load_from_file('sheet.json', local_dir)
     else:
         service = initialise_sheets_api(creds_file, scope)
         exercise_data = load_sheet_data(service, sheet_id, 'Current!A2:AV50')
