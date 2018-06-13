@@ -31,10 +31,10 @@ def load_from_file(filename, local_dir='.', format='json'):
 
 if __name__ == '__main__':
     print('Initialising API')
-    creds_file, scope, sheet_id, _ = sheets_api.load_settings()
+    creds_file, scope, sheet_id, _, local_dir = sheets_api.load_settings()
     service = sheets_api.initialise_sheets_api(creds_file, scope)
     print('Retrieving data')
     values = sheets_api.load_sheet_data(service, sheet_id, 'Current!A2:AV50')
     print('Persisting data')
-    save_to_file(values, 'sheet.json', 'temp')
+    save_to_file(values, 'sheet.json', local_dir)
     print('Done')
