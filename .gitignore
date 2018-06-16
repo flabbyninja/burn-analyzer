@@ -3,5 +3,5 @@
 .idea
 venv
 /.env
-/sheet.pkl
 /config.yml
+/temp/
