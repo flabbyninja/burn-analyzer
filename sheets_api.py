@@ -1,28 +1,9 @@
-import os
-from os.path import join, dirname
 import api_to_file
+import config
 
 from apiclient.discovery import build
-from dotenv import load_dotenv
 from httplib2 import Http
 from oauth2client import service_account
-
-
-def load_settings(dotenv_path=None):
-    if dotenv_path == None:
-        dotenv_path = join(dirname(__file__), '.env')
-    load_dotenv(dotenv_path)
-
-    CREDS_FILE = os.environ.get("CREDS_FILE")
-    SCOPES = os.environ.get("SCOPES")
-    SPREADSHEET_ID = os.environ.get("SPREADSHEET_ID")
-    LOCAL_MODE = os.environ.get("LOCAL_MODE")
-    LOCAL_DIR = os.environ.get("LOCAL_DIR")
-
-    if LOCAL_MODE is None:
-        LOCAL_MODE = False
-
-    return CREDS_FILE, SCOPES, SPREADSHEET_ID, LOCAL_MODE, LOCAL_DIR
 
 
 def initialise_sheets_api(creds_file, scopes):
@@ -44,7 +25,7 @@ def read_dates(exercise_data):
 
 
 if __name__ ==  "__main__":
-    creds_file, scope, sheet_id, local_mode, local_dir = load_settings()
+    creds_file, scope, sheet_id, local_mode, local_dir = config.load_settings()
 
     if local_mode:
         print('Running in local mode')
