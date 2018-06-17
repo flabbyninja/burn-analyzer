@@ -13,19 +13,21 @@ Pull details from Google Sheets API, explode out clean data structure for analys
 
 ## Configuration
 
-Place a `.env` file in main directory containing the following:
+Place a `config.yml` file in main directory containing the following:
 
 ```
-SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
-CREDS_FILE = 'client_secret.json'
-SPREADSHEET_ID = '1_Ozr94M1N9eUffqm3bw9q4jSBljIFSCI49Tg6wegrAgI'
-LOCAL_MODE = true
-LOCAL_FORMAT = 'pickle'
+scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+creds_file: client_secret.json
+spreadsheet_id: id_from_sheets
+local_mode: True
+local_format: json
+local_dir: temp
+indent: True
 ```
 
-`LOCAL_MODE` allows development offline, saving the data structures from the Sheets API to file so you can reconstruct them. Default is local mode `false`.
+`local_mode` allows development offline, saving the data structures from the Sheets API to file so you can reconstruct them. Default is local mode `false`.
 
-`LOCAL_FORMAT` supports both 'json' and 'pickle' formats for the output file. JSON is recommended.
+`local_format` supports both 'json' and 'pickle' formats for the output file. JSON is default and recommended. `indent` supports formatting of the local file to allow easier readability during development. Default is `False`.
 
 Credentials use [OAUTH](https://developers.google.com/identity/protocols/OAuth2) and should be in JSON format, activated through the [Google API Console](https://console.developers.google.com/) for you account.
 
