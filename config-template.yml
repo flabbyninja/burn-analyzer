@@ -4,3 +4,4 @@ spreadsheet_id: id_from_sheets
 local_mode: True
 local_format: json
 local_dir: temp
+indent: True
