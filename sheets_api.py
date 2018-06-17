@@ -25,7 +25,7 @@ def read_dates(exercise_data):
 
 
 if __name__ ==  "__main__":
-    creds_file, scope, sheet_id, local_mode, local_dir = config.load_settings()
+    creds_file, scope, sheet_id, local_mode, local_dir, _ = config.load_settings()
 
     if local_mode:
         print('Running in local mode')
