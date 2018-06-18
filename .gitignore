@@ -5,3 +5,4 @@ venv
 /.env
 /config.yml
 /temp/
+__pycache__
