@@ -33,18 +33,6 @@ class TestApiToFileSave(TestCase):
 
     sample_data = [['Lion', 'Bear', 'Armadillo', 'Rhino', 'Three Horned Toad'], ['5', '10', '15', '20', '25'] ,['1', '2', '3', '5', '8']]
 
-    # def save_to_file(data, filename, dir_name='.', pretty_print=False):
-    #     if not isdir(dir_name):
-    #         mkdir(dir_name)
-    #     full_filename = join(dir_name, filename)
-    #     afile = open(full_filename, 'w')
-    #     if pretty_print:
-    #         js = json.dumps(data, indent=4)
-    #     else:
-    #         js = json.dumps(data)
-    #     afile.write(js)
-    #     afile.close()
-
     def generate_timestamp_name(self, root_name):
         return root_name.format((datetime.now().strftime('_%Y%m%d_%H%M%S%f')))
 
