@@ -1,5 +1,5 @@
 from unittest import TestCase
-from config import load_settings
+from burn_analyzer.config import load_settings
 from yaml.scanner import ScannerError
 
 

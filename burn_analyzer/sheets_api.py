@@ -1,5 +1,4 @@
-import api_to_file
-import config
+from burn_analyzer import config, api_to_file
 
 from apiclient.discovery import build
 from httplib2 import Http
