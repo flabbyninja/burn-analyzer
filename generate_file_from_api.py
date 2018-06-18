@@ -1,7 +1,7 @@
 import logging
-from config import load_settings
-from api_to_file import save_to_file
-import sheets_api
+from burn_analyzer.config import load_settings
+from burn_analyzer.api_to_file import save_to_file
+from burn_analyzer import sheets_api
 
 if __name__ == '__main__':
     print('Initialising API')

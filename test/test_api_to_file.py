@@ -1,5 +1,5 @@
 from unittest import TestCase
-import api_to_file
+from burn_analyzer import api_to_file
 from json.decoder import JSONDecodeError
 from datetime import datetime
 import os
