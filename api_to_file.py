@@ -3,6 +3,7 @@ import sheets_api
 from os.path import join, isdir
 from config import load_settings
 from os import mkdir
+import logging
 
 
 def save_to_file(data, filename, dir_name='.', pretty_print=False):
@@ -29,6 +30,7 @@ def load_from_file(filename, dir_name='.'):
 
 if __name__ == '__main__':
     print('Initialising API')
+    logging.basicConfig(level=logging.ERROR)
     creds_file, scope, sheet_id, _, local_dir, indent = load_settings()
     service = sheets_api.initialise_sheets_api(creds_file, scope)
     print('Retrieving data')
