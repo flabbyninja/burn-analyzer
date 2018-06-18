@@ -1,6 +1,8 @@
-from os.path import join
-import yaml
 import logging
+from os.path import join
+
+import yaml
+
 
 def load_settings(filename=None, dirname='.'):
     if (filename == None):

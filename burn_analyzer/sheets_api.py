@@ -1,8 +1,8 @@
-from burn_analyzer import config, api_to_file
-
 from apiclient.discovery import build
 from httplib2 import Http
 from oauth2client import service_account
+
+from burn_analyzer import config, api_to_file
 
 
 def initialise_sheets_api(creds_file, scopes):

@@ -1,8 +1,9 @@
-from unittest import TestCase
-from burn_analyzer import api_to_file
-from json.decoder import JSONDecodeError
-from datetime import datetime
 import os
+from datetime import datetime
+from json.decoder import JSONDecodeError
+from unittest import TestCase
+
+from burn_analyzer import api_to_file
 
 
 class TestApiToFileLoad(TestCase):
