@@ -8,10 +8,16 @@ class TestConfig(TestCase):
     expected_settings = ('client_secret.json', 'https://www.googleapis.com/auth/spreadsheets.readonly', 'dummy_value', True, 'temp', True)
 
     def test_load_settings_valid_default_name(self):
-        self.assertEquals(load_settings(), self.expected_settings)
+        self.assertEqual(load_settings(), self.expected_settings)
+
+    def test_load_settings_default_for_local_mode(self):
+        default_settings = (
+            'client_secret.json', 'https://www.googleapis.com/auth/spreadsheets.readonly', 'dummy_value', False, 'temp', True
+        )
+        self.assertEqual(load_settings('config_no_local.yml'), default_settings)
 
     def test_load_settings_valid_filename(self):
-        self.assertEquals(load_settings('config.yml'), self.expected_settings)
+        self.assertEqual(load_settings('config.yml'), self.expected_settings)
 
     def test_load_settings_missing_file(self):
         with self.assertRaises(FileNotFoundError):
@@ -27,7 +33,7 @@ class TestConfig(TestCase):
 
     def test_load_settings_valid_subdir(self):
         settings = load_settings(dirname='subdir')
-        self.assertEquals(settings, self.expected_settings)
+        self.assertEqual(settings, self.expected_settings)
 
     def test_load_settings_missing_subdir(self):
         with self.assertRaises(FileNotFoundError):
