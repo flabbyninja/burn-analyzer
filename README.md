@@ -20,14 +20,11 @@ scopes: https://www.googleapis.com/auth/spreadsheets.readonly
 creds_file: client_secret.json
 spreadsheet_id: id_from_sheets
 local_mode: True
-local_format: json
 local_dir: temp
 indent: True
 ```
 
 `local_mode` allows development offline, saving the data structures from the Sheets API to file so you can reconstruct them. Default is local mode `false`.
-
-`local_format` supports both 'json' and 'pickle' formats for the output file. JSON is default and recommended. `indent` supports formatting of the local file to allow easier readability during development. Default is `False`.
 
 Credentials use [OAUTH](https://developers.google.com/identity/protocols/OAuth2) and should be in JSON format, activated through the [Google API Console](https://console.developers.google.com/) for you account.
 
