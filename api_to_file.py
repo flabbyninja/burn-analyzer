@@ -43,5 +43,5 @@ if __name__ == '__main__':
     print('Retrieving data')
     values = sheets_api.load_sheet_data(service, sheet_id, 'Current!A2:AV50')
     print('Persisting data')
-    save_to_file(values, 'sheet.json', local_dir, pretty_print=indent)
+    save_to_file(values, 'subdir_valid.json', local_dir, pretty_print=indent)
     print('Done')
