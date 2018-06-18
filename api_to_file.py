@@ -1,4 +1,3 @@
-import pickle
 import json
 import sheets_api
 from os.path import join, isdir
@@ -6,32 +5,24 @@ from config import load_settings
 from os import mkdir
 
 
-def save_to_file(data, filename, dir_name='.', output_format='json', pretty_print=False):
+def save_to_file(data, filename, dir_name='.', pretty_print=False):
     if not isdir(dir_name):
         mkdir(dir_name)
     full_filename = join(dir_name, filename)
-    if output_format == 'pickle':
-        afile = open(full_filename, 'wb')
-        pickle.dump(data, afile)
+    afile = open(full_filename, 'w')
+    if pretty_print:
+        js = json.dumps(data, indent=4)
     else:
-        afile = open(full_filename, 'w')
-        if pretty_print:
-            js = json.dumps(data, indent=4)
-        else:
-            js = json.dumps(data)
-        afile.write(js)
+        js = json.dumps(data)
+    afile.write(js)
     afile.close()
 
 
-def load_from_file(filename, dir_name='.', input_format='json'):
+def load_from_file(filename, dir_name='.'):
     full_filename = join(dir_name, filename)
-    if input_format == 'pickle':
-        source_file = open(full_filename, 'rb')
-        new_data = pickle.load(source_file)
-    else:
-        source_file = open(full_filename, 'r')
-        js = source_file.read()
-        new_data = json.loads(js)
+    source_file = open(full_filename, 'r')
+    js = source_file.read()
+    new_data = json.loads(js)
     source_file.close()
     return new_data
 
