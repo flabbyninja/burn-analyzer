@@ -19,6 +19,7 @@ def load_sheet_data(service, spreadsheet_id, range_name):
 def read_exercises(exercise_data):
     return None
 
+
 def read_dates(exercise_data):
     return None
 
