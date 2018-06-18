@@ -8,7 +8,7 @@ from oauth2client import service_account
 
 def initialise_sheets_api(creds_file, scopes):
     creds = service_account.ServiceAccountCredentials.from_json_keyfile_name(creds_file, scopes)
-    return build('sheets', 'v4', http=creds.authorize(Http()))
+    return build('sheets', 'v4', http=creds.authorize(Http()), cache_discovery=False)
 
 
 def load_sheet_data(service, spreadsheet_id, range_name):
