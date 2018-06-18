@@ -1,5 +1,4 @@
-import api_to_file
-import config
+from burn_analyzer import config, api_to_file
 
 from apiclient.discovery import build
 from httplib2 import Http
@@ -8,7 +7,7 @@ from oauth2client import service_account
 
 def initialise_sheets_api(creds_file, scopes):
     creds = service_account.ServiceAccountCredentials.from_json_keyfile_name(creds_file, scopes)
-    return build('sheets', 'v4', http=creds.authorize(Http()))
+    return build('sheets', 'v4', http=creds.authorize(Http()), cache_discovery=False)
 
 
 def load_sheet_data(service, spreadsheet_id, range_name):
@@ -17,7 +16,7 @@ def load_sheet_data(service, spreadsheet_id, range_name):
     return values
 
 
-def read_exercises(exercide_data):
+def read_exercises(exercise_data):
     return None
 
 def read_dates(exercise_data):
@@ -29,7 +28,7 @@ if __name__ ==  "__main__":
 
     if local_mode:
         print('Running in local mode')
-        exercise_data = api_to_file.load_from_file('sheet.json', local_dir)
+        exercise_data = api_to_file.load_from_file('subdir_valid.json', local_dir)
     else:
         service = initialise_sheets_api(creds_file, scope)
         exercise_data = load_sheet_data(service, sheet_id, 'Current!A2:AV50')
