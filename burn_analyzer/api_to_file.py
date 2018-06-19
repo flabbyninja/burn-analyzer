@@ -1,6 +1,6 @@
 import json
-from os.path import join, isdir
 from os import mkdir
+from os.path import join, isdir
 
 
 def save_to_file(data, filename, dir_name='.', pretty_print=False):
