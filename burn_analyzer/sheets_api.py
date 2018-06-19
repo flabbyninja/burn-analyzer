@@ -21,7 +21,7 @@ if __name__ ==  "__main__":
 
     if local_mode:
         print('Running in local mode')
-        exercise_data = api_to_file.load_from_file('subdir_valid.json', local_dir)
+        exercise_data = api_to_file.load_from_file('sheets.json', local_dir)
     else:
         service = initialise_sheets_api(creds_file, scope)
         exercise_data = load_sheet_data(service, sheet_id, 'Current!A2:AV50')
