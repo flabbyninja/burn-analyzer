@@ -16,14 +16,6 @@ def load_sheet_data(service, spreadsheet_id, range_name):
     return values
 
 
-def read_exercises(exercise_data):
-    return None
-
-
-def read_dates(exercise_data):
-    return None
-
-
 if __name__ ==  "__main__":
     creds_file, scope, sheet_id, local_mode, local_dir, _ = config.load_settings()
 
