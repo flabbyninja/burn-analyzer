@@ -1,6 +1,0 @@
-scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-creds_file: client_secret.json
-spreadsheet_id: dummy_value
-local_mode: True
-local_dir: temp
-indent: True

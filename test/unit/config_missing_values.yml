@@ -1,6 +1,0 @@
-scrapes: https://www.googleapis.com/auth/spreadsheets.readonly
-croods_file: client_secret.json
-spreadsheet_id: dummy_value
-local_mood: True
-local_door: temp
-identification: True
