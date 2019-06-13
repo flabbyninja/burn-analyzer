@@ -1,11 +1,9 @@
 import logging
-from os.path import join
-
+from burn_analyzer import data_processor
 from burn_analyzer import sheets_loader
-from burn_analyzer.api_to_file import save_to_file
 from burn_analyzer.config import load_settings
 
-# Pull data from sheets API, saving content as local file
+# Pull data from sheets API, processing exercises and outputting results
 #
 if __name__ == '__main__':
     logging.basicConfig(level=logging.ERROR)
@@ -17,9 +15,7 @@ if __name__ == '__main__':
 
     extract_range = 'Current!A2:AV50'
     print('Retrieving data {} from Sheets API using {}'.format(extract_range, sheet_id))
-    values = sheets_loader.load_sheet_data(service, sheet_id, extract_range)
+    data = sheets_loader.load_sheet_data(service, sheet_id, extract_range)
 
-    output_file = 'sheet.json'
-    print('Persisting data to {}'.format(join(local_dir, output_file)))
-    save_to_file(values, output_file, local_dir, pretty_print=indent)
-    print('Done')
+    print('Processing exercises from data')
+    print(data_processor.get_normalised_exercises(data))

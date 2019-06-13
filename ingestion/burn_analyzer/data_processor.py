@@ -1,6 +1,5 @@
 EXERCISE_NAMES_ROW = 0
-MAX_VALUE_ROW = 1
-
+MAX_VALUE_ROW = 1   # This is the derived column to skip as it doesn't represent an actual exercise entry
 
 def get_normalised_exercises(exercise_data):
     clean_normalised_exercises = []
