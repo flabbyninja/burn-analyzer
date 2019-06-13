@@ -10,7 +10,7 @@ def load_settings(filename=None, dirname='.'):
     full_filename = join(dirname, filename)
     logging.info("Ready to load config from {}".format(full_filename))
     with open(full_filename) as config_file:
-        config = yaml.load(config_file)
+        config = yaml.load(config_file, Loader=yaml.SafeLoader)
         if 'local_mode' in config:
             local_mode = config['local_mode']
         else:
