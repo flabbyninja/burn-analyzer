@@ -5,7 +5,7 @@ import yaml
 
 
 def load_settings(filename=None, dirname='.'):
-    if (filename == None):
+    if filename is None:
         filename = 'config.yml'
     full_filename = join(dirname, filename)
     logging.info("Ready to load config from {}".format(full_filename))
@@ -16,4 +16,9 @@ def load_settings(filename=None, dirname='.'):
         else:
             local_mode = False
         logging.info("Config loaded successfully")
-        return config['creds_file'], config['scopes'], config['spreadsheet_id'], local_mode, config['local_dir'], config['indent']
+        return config['creds_file'], \
+            config['scopes'], \
+            config['spreadsheet_id'], \
+            local_mode, \
+            config['local_dir'], \
+            config['indent']
