@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <div id="mainApp" className="container">
-        <h1>BurnTracker</h1>
+        <h1>PowerTracker</h1>
         <Timeline />
         <div class="row" id="detail">
           <Cards cardConfig={cardConfig} />
