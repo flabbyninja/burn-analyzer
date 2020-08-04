@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Timeline from "./Timeline";
+import Cards from "./Cards";
+
+const cardConfig = [
+  {
+    name: "metric1",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric2",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric3",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric4",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric5",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric6",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+  {
+    name: "metric7",
+    description: "decription",
+    dataSource: "api/thing",
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="mainApp" className="container">
+        <h1>BurnTracker</h1>
+        <Timeline />
+        <div class="row" id="detail">
+          <Cards cardConfig={cardConfig} />
+        </div>
+      </div>
     </div>
   );
 }

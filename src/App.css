@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#mainApp div {
+  border: 5px solid red;
+}
+
+#cards div {
+  float: left;
+  margin: 0 auto;
+}
