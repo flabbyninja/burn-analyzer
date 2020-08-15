@@ -2,11 +2,13 @@ import React from "react";
 
 function Cards(props) {
   const cardConfig = props.cardConfig;
+
+  cardConfig.sort((a, b) => a.priority - b.priority);
   return (
-    <div class="carddeck row">
+    <div className="carddeck row">
       {cardConfig.map((value, index) => {
         return (
-          <div class="card-holder p-2 col-xl-2 col-md-3 col-sm-6">
+          <div className="card-holder p-2 col-xl-2 col-md-3 col-sm-6">
             <Card card={value} />
           </div>
         );
@@ -18,7 +20,7 @@ function Cards(props) {
 function Card(props) {
   return (
     <div class="card">
-      <img src="..." class="card-img-top" alt="..."></img>
+      <i className={"card-img-top flaticon " + props.card.icon}></i>
       <div class="card-body">
         <h5 class="card-title">{props.card.name}</h5>
         <p class="card-text">{props.card.description}</p>

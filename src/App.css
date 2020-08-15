@@ -24,6 +24,11 @@
   color: white;
 }
 
+.flaticon {
+  font-family: Flaticon;
+  font-style: normal;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -40,4 +45,8 @@
 .carddeck {
   display: inline-flex;
   flex-wrap: wrap;
+}
+
+.card-img-top {
+  font-size: 3rem;
 }

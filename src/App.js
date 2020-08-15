@@ -2,44 +2,9 @@ import React from "react";
 import "./App.css";
 import Timeline from "./Timeline";
 import Cards from "./Cards";
+import staticCards from "./testdata";
 
-const cardConfig = [
-  {
-    name: "metric1",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric2",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric3",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric4",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric5",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric6",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-  {
-    name: "metric7",
-    description: "decription",
-    dataSource: "api/thing",
-  },
-];
+const cardConfig = staticCards;
 
 function App() {
   return (
@@ -50,6 +15,16 @@ function App() {
         <div id="detail">
           <Cards cardConfig={cardConfig} />
         </div>
+      </div>
+      <div>
+        Icons made by{" "}
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
       </div>
     </div>
   );
