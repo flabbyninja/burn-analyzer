@@ -50,3 +50,7 @@
 .card-img-top {
   font-size: 3rem;
 }
+
+.card-text {
+  font-size: 0.8rem;
+}
