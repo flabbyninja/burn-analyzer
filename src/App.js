@@ -47,7 +47,7 @@ function App() {
       <div id="mainApp" className="container">
         <h1>PowerTracker</h1>
         <Timeline />
-        <div class="row" id="detail">
+        <div id="detail">
           <Cards cardConfig={cardConfig} />
         </div>
       </div>

@@ -37,11 +37,7 @@
   }
 }
 
-#mainApp div {
-  border: 5px solid red;
-}
-
-#cards div {
-  float: left;
-  margin: 0 auto;
+.carddeck {
+  display: inline-flex;
+  flex-wrap: wrap;
 }
