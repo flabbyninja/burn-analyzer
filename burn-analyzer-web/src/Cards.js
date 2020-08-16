@@ -24,10 +24,7 @@ function Card(props) {
       <div className="card-body">
         <h5 className="card-title">{props.card.name}</h5>
         <p className="card-text">{props.card.description}</p>
-        <a
-          href={props.card.dataSource}
-          className="btn btn-primary btn-sm position-absolute mb-2 mx-auto"
-        >
+        <a href={props.card.dataSource} className="btn btn-primary btn-sm mb-2">
           API Link
         </a>
       </div>
