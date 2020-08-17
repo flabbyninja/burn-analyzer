@@ -3,12 +3,14 @@ import "./App.css";
 import Timeline from "./Timeline";
 import Cards from "./Cards";
 import staticCards from "./testdata";
+import BurnNav from "./BurnNav";
 
 const cardConfig = staticCards;
 
 function App() {
   return (
     <div className="App">
+      <BurnNav />
       <div id="mainApp" className="container">
         <h1>PowerTracker</h1>
         <Timeline />

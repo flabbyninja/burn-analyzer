@@ -54,3 +54,12 @@
 .card-text {
   font-size: 0.8rem;
 }
+
+.navbar-brand i {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.navbar-brand span {
+  font-size: 1.3rem;
+}
