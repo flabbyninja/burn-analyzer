@@ -42,11 +42,6 @@
   }
 }
 
-.carddeck {
-  display: inline-flex;
-  flex-wrap: wrap;
-}
-
 .card-img-top {
   font-size: 3rem;
 }
